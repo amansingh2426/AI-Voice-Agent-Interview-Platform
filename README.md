@@ -83,29 +83,3 @@ Copy
 Edit
 OPENAI_API_KEY=your_openai_api_key
 DEEPGRAM_API_KEY=your_deepgram_api_key
-
-RATE_LIMIT_POINTS=10
-RATE_LIMIT_DURATION=1
-RATE_LIMIT_BLOCK_DURATION=60
-Run locally
-
-bash
-Copy
-Edit
-npm run dev
-# or
-yarn dev
-Visit: http://localhost:3000
-
-API Rate Limiting
-10 requests per second per client
-
-60-second block when exceeded
-
-Applies to all API endpoints:
-
-Speech-to-Text conversion
-
-AI response generation
-
-Text-to-Speech synthesis
