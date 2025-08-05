@@ -1,145 +1,111 @@
-# AI Interview Practice Platform
+# AI Voice Agent Interview Platform
 
-An interactive web application that simulates job interviews using AI-powered voice conversations. Built with Next.js, this platform provides a realistic interview experience with real-time voice interaction and feedback.
+An interactive web application that simulates job interviews using AI-powered voice conversations.  
+Built with **Next.js**, this platform delivers a realistic interview experience through real-time voice interaction, AI-generated questions, and instant feedback.
+
+---
+
+## Author
+
+**Aman Singh** – Full Stack Developer
+
+---
 
 ## Features
 
-- 🎙️ Voice-based interaction with AI interviewer
-- 🤖 Natural language processing for dynamic responses
+- 🎙️ Voice-based interaction with an AI interviewer
+- 🤖 Natural language processing for dynamic question & answer flow
 - ⏯️ Pause/Resume interview functionality
-- 📊 Progress tracking through interview stages
+- 📊 Track interview progress and stages
 - 🔄 Real-time feedback on responses
-- 🎯 Customized follow-up questions
-- 🛡️ Rate limiting protection for API endpoints
-- ♿ Comprehensive accessibility features
+- 🎯 Customized follow-up questions based on your answers
+- 🛡️ Built-in rate limiting for API security
+- ♿ Accessibility-first design following WCAG guidelines
+
+---
 
 ## Accessibility Features
 
-The platform is built with accessibility in mind, following WCAG guidelines:
-
 ### Keyboard Navigation
-
 - Full keyboard support for all interactive elements
-- Visible focus indicators
-- Logical tab order through the interface
+- Visible focus indicators & logical tab order
 
 ### Screen Reader Support
-
-- Semantic HTML structure with ARIA landmarks
-- Descriptive ARIA labels for all interactive components
-- Live regions for dynamic content updates
-- Status announcements for:
-  - Interview progress
-  - Recording states
-  - AI response generation
-  - Error messages
+- Semantic HTML with ARIA landmarks
+- Descriptive ARIA labels
+- Live regions for dynamic updates
+- Status announcements for progress, recording states, AI responses, and errors
 
 ### Audio Interface
-
 - Play/Pause controls for AI voice responses
-- Visual indicators synchronized with audio playback
-- Clear audio status feedback
+- Visual indicators synced with audio
 - Alternative text for all audio controls
 
 ### Visual Accessibility
+- High contrast color scheme
+- Clear layout and spacing
+- Status indicators for recording, interview progress, and system status
 
-- High contrast color schemes
-- Clear visual hierarchy
-- Consistent layout and spacing
-- Visual indicators for:
-  - Recording status
-  - Interview progress
-  - System status
-  - Error states
-
-### State Management
-
-- Clear state indicators for:
-  - Interview progress
-  - Recording status
-  - Processing states
-  - Error conditions
-- Proper ARIA states for all interactive elements
+---
 
 ## Tech Stack
 
 - **Framework**: Next.js 14
 - **Frontend**: React, TailwindCSS
 - **AI Services**:
-  - OpenAI GPT-3.5 (you can change it to GPT-4) for interview logic
+  - OpenAI GPT-4 for interview logic
   - Deepgram for Speech-to-Text and Text-to-Speech
-- **State Management**: React Context
+- **State Management**: React Context API
 - **API Protection**: In-memory rate limiting
 - **Styling**: TailwindCSS with custom animations
 
+---
+
 ## Getting Started
 
-1. Clone the repository:
-
+1. **Clone this repository**
    ```bash
-   git clone https://github.com/yourusername/ai-interview-platform.git
-   ```
+   git clone https://github.com/amansingh2426/ai-voice-agent-interview.git
+   cd ai-voice-agent-interview
+Install dependencies
 
-2. Install dependencies:
+bash
+Copy
+Edit
+npm install
+# or
+yarn install
+Set up environment variables
+Create .env.local in the root folder:
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+env
+Copy
+Edit
+OPENAI_API_KEY=your_openai_api_key
+DEEPGRAM_API_KEY=your_deepgram_api_key
 
-3. Set up environment variables:
-   Create a `.env.local` file with the following:
+RATE_LIMIT_POINTS=10
+RATE_LIMIT_DURATION=1
+RATE_LIMIT_BLOCK_DURATION=60
+Run locally
 
-   ```env
-   OPENAI_API_KEY=your_openai_key
-   DEEPGRAM_API_KEY=your_deepgram_key
+bash
+Copy
+Edit
+npm run dev
+# or
+yarn dev
+Visit: http://localhost:3000
 
-   # Rate limiting configuration
-   RATE_LIMIT_POINTS=10
-   RATE_LIMIT_DURATION=1
-   RATE_LIMIT_BLOCK_DURATION=60
-   ```
+API Rate Limiting
+10 requests per second per client
 
-4. Run the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+60-second block when exceeded
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Applies to all API endpoints:
 
-## API Rate Limiting
+Speech-to-Text conversion
 
-The application implements rate limiting to protect API endpoints:
+AI response generation
 
-- Default limit: 10 requests per second per client
-- Block duration: 60 seconds when limit is exceeded
-- Tracked by client IP address
-- Applies to all API endpoints:
-  - Speech-to-Text conversion
-  - LLM response generation
-  - Text-to-Speech synthesis
-
-## Environment Variables
-
-| Variable                    | Description                                   | Default  |
-| --------------------------- | --------------------------------------------- | -------- |
-| `OPENAI_API_KEY`            | OpenAI API key for LLM responses              | Required |
-| `DEEPGRAM_API_KEY`          | Deepgram API key for voice features           | Required |
-| `RATE_LIMIT_POINTS`         | Number of requests allowed per duration       | 10       |
-| `RATE_LIMIT_DURATION`       | Time window in seconds                        | 1        |
-| `RATE_LIMIT_BLOCK_DURATION` | Block duration in seconds when limit exceeded | 60       |
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-```
-
-```
+Text-to-Speech synthesis
